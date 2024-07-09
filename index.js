@@ -71,15 +71,6 @@ server.put('/api/dogs/:id', (req, res) => {
 
 })
 
-// server.get('/api/dogs/:id', (req, res) => {
-//     const dogId = req.params.id;
-//     const dog = dogs.find(d => d.id === dogId);
-//     if (dog) {
-//         res.json(dog);
-//     } else {
-//         res.status(404).send('Dog not found');
-//     }
-// })
 
 server.get('/api/dogs/:id', (req, res) => {
     const dogId = req.params.id;
