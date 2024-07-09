@@ -72,16 +72,24 @@ server.put('/api/dogs/:id', (req, res) => {
 })
 
 // server.get('/api/dogs/:id', (req, res) => {
-//     const dog = req.params.id;
-//     const find = dogs.find(d => d.id === id);
-//     if(find) {
-//         Object.assign(find);
-//     }else {
-
+//     const dogId = req.params.id;
+//     const dog = dogs.find(d => d.id === dogId);
+//     if (dog) {
+//         res.json(dog);
+//     } else {
+//         res.status(404).send('Dog not found');
 //     }
-
-//     res.json(dog)
 // })
+
+server.get('/api/dogs/:id', (req, res) => {
+    const dogId = req.params.id;
+    const dog = dogs.find(d => d.id === dogId);
+    if (dog) {
+        res.json(dog);
+    } else {
+        res.status(404).send('Dog not found');
+    }
+});
 
 const PORT = 8000; // we visit http://localhost:8000/ to see API
 server.listen(PORT, () => console.log(`server is running on port ${PORT}`));
